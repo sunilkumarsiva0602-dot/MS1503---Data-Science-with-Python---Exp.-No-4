@@ -99,7 +99,8 @@ plt.show()
 
 ```
 ## Output
-![Company Revenue and Expense Trends](exp4.png)
+<img width="920" height="541" alt="image" src="https://github.com/user-attachments/assets/e6e8d665-f0b2-46c0-813f-e8f4908249ad" />
+
 
 ## Result
 
