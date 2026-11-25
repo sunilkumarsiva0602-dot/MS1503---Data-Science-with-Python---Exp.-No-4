@@ -39,84 +39,67 @@ To visualize the yearly trend of company revenue and expenses from 2017 to 2023 
 | | `plt.tight_layout()`, `plt.show()` | Optimizes spacing to avoid overlapping elements and renders the figure |
 
 ## Program / Code
-    
-    # Company Revenue and Expense Visualization using Matplotlib
-    import matplotlib.pyplot as plt
-    import numpy as np
-    
-    # Step 1: Create dataset
-    years = np.arange(2017, 2024)
-    revenue = [45.0, 52.5, 61.0, 58.0, 74.5, 89.0, 104.5]  # in Lakhs
-    expenses = [32.0, 36.5, 41.0, 44.0, 49.5, 56.0, 63.5]  # in Lakhs
-    
-    # Step 2: Plot Revenue and Expenses
-    plt.figure(figsize=(8, 5))
-    plt.plot(
-        years,
-        revenue,
-        color="green",
-        linestyle="-",
-        marker="o",
-        linewidth=2,
-        markersize=7,
-        label="Revenue (Lakhs)",
-    )
-    plt.plot(
-        years,
-        expenses,
-        color="red",
-        linestyle="--",
-        marker="s",
-        linewidth=2,
-        markersize=7,
-        label="Expenses (Lakhs)",
-    )
-    
-    # Step 3: Add titles, labels, and grid
-    plt.title(
-        "Yearly Company Revenue vs. Expenses (2017-2023)",
-        fontsize=13,
-        fontweight="bold",
-    )
-    plt.xlabel("Year", fontsize=11)
-    plt.ylabel("Amount (in Lakhs)", fontsize=11)
-    plt.xticks(years)
-    plt.grid(True, linestyle="--", alpha=0.5)
-    
-    # Step 4: Add legend
-    plt.legend(loc="upper left")
-    
-    # Step 5: Annotate highest revenue and expense
-    max_rev_idx = np.argmax(revenue)
-    max_exp_idx = np.argmax(expenses)
-    
-    plt.annotate(
-        f"Peak Revenue: {revenue[max_rev_idx]}L",
-        xy=(years[max_rev_idx], revenue[max_rev_idx]),
-        xytext=(years[max_rev_idx] - 1.5, revenue[max_rev_idx] + 6),
-        arrowprops=dict(arrowstyle="->", color="green", lw=1.5),
-        fontsize=9.5,
-        fontweight="bold",
-        color="green",
-    )
-    
-    plt.annotate(
-        f"Peak Expense: {expenses[max_exp_idx]}L",
-        xy=(years[max_exp_idx], expenses[max_exp_idx]),
-        xytext=(years[max_exp_idx] - 1.8, expenses[max_exp_idx] - 10),
-        arrowprops=dict(arrowstyle="->", color="red", lw=1.5),
-        fontsize=9.5,
-        fontweight="bold",
-        color="red",
-    )
-    
-    # Step 6: Adjust layout and show plot
-    plt.tight_layout()
-    plt.show()
+```python
+Step 1: Import Libraries and Initialize Dataset
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+years = np.arange(2017, 2024)
+revenue = [20, 25, 28, 35, 40, 45, 52]
+expenses = [15, 18, 22, 27, 30, 33, 38]
+
+Step 2: Configure Figure and Plot Revenue and Expenses
+
+plt.figure(figsize=(8, 5))
+
+plt.plot(years, revenue, marker='o', color='green',
+         linewidth=2, label='Revenue')
+
+plt.plot(years, expenses, marker='s', color='red',
+         linestyle='--', linewidth=2, label='Expenses')
+
+Step 3: Format Chart Title, Labels and Grid
+
+plt.title("Company Revenue and Expense Trends (2017-2023)",
+          fontsize=13, fontweight='bold')
+
+plt.xlabel("Year", fontsize=11)
+plt.ylabel("Amount (in Lakhs)", fontsize=11)
+
+plt.grid(True, linestyle=':', alpha=0.6)
+
+Step 4: Add Legend
+
+plt.legend(loc='upper left')
+
+Step 5: Find and Annotate Highest Revenue and Expenses
+
+max_rev_index = np.argmax(revenue)
+max_exp_index = np.argmax(expenses)
+
+plt.annotate(
+    f"Highest Revenue: {revenue[max_rev_index]}L",
+    xy=(years[max_rev_index], revenue[max_rev_index]),
+    xytext=(years[max_rev_index]-1, revenue[max_rev_index]+2),
+    arrowprops=dict(facecolor='black', arrowstyle='->')
+)
+
+plt.annotate(
+    f"Highest Expenses: {expenses[max_exp_index]}L",
+    xy=(years[max_exp_index], expenses[max_exp_index]),
+    xytext=(years[max_exp_index]-1, expenses[max_exp_index]+2),
+    arrowprops=dict(facecolor='black', arrowstyle='->')
+)
+
+Step 6: Adjust Layout and Display Plot
+
+plt.tight_layout()
+plt.show()
+
+```
 ## Output
-<img width="1210" height="671" alt="image" src="https://github.com/user-attachments/assets/735ecede-e6c7-41c1-b74f-514b496a5c34" />
-
+![Company Revenue and Expense Trends](exp4.png)
 
 ## Result
 
